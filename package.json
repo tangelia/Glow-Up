@@ -1,21 +1,23 @@
 {
   "name": "Glow_Up",
   "version": "1.0.0",
-  "description": "",
+  "description": "A DIY Beauty Formulation Database",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev":  "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "master"
   },
-  "keywords": [],
+  "keywords": [Recipe,Makeup,Beauty,Formulations],
   "author": "Tangelia Broom",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "hbs": "^4.0.4",
     "method-override": "^3.0.0",
     "mongoose": "^5.5.4",
     "node": "^11.14.0",
