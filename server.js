@@ -1,19 +1,17 @@
 const express = require('express');
-const routes = require('./routes/index');
 // Initialize app
 const app = express();
+const routes = require('./routes/index');
 
-//Set view engine
-app.set('view engine', 'hbs');
 
 //Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Set view engine
+app.use(express.static(__dirname+"/public"));
+app.set('view engine', 'hbs');
 
-//Home route
-app.get('/',(req,res)=>{
-res.render('Hello World')
-});
 
 //Router
 app.use('/', routes);
