@@ -21,7 +21,7 @@ GLOW UP: a DIY beauty recipe exchange. .
 * Nodejs & NPM
 * Express
 * MongoDB
-* Material
+* Bootstrap
 
 
 ## Features

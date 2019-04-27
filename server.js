@@ -1,13 +1,13 @@
 const express = require('express');
-const 
+const routes = require('./routes/index');
 // Initialize app
 const app = express();
 
 //Set view engine
 app.set('view engine', 'hbs');
 
-
-
+//Middleware
+app.use(express.json());
 
 
 //Home route
@@ -16,7 +16,7 @@ res.render('Hello World')
 });
 
 //Router
-app.use('/', routes)
+app.use('/', routes);
 
 
 // Listener
