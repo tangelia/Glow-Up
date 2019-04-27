@@ -1,19 +1,29 @@
 const express = require('express');
-
+const 
+// Initialize app
 const app = express();
 
+//Set view engine
+app.set('view engine', 'hbs');
 
+
+
+
+
+//Home route
 app.get('/',(req,res)=>{
-res.send('Hello World')
-})
-
-
-
-
-app.listen(3000, function(){
-    console.log ('Server started on port 3000');
+res.render('Hello World')
 });
 
+//Router
+app.use('/', routes)
+
+
+// Listener
+const PORT = process.env.PORT || 3000
+app.listen(PORT,()=>{
+    console.log(`Glow up is connected to ${PORT}`);
+});
 
 
 
