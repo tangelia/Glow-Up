@@ -6,11 +6,11 @@ router.get('/', (req, res, next) => {
   res.send('respond with a resource');
 });
 
-//GET index /user
-//GET new  /user/new
-//POST create /user
-//GET show /user/:id
-//GET edit /user/:id/edit
-//PUT update  /user/:id
-//DELETE delete /user/:id
+//GET index /users
+//GET new  /users/new
+//POST create /users
+//GET show /users/:id
+//GET edit /users/:id/edit
+//PUT update  /users/:id
+//DELETE delete /users/:id
 module.exports = router;

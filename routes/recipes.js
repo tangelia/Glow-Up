@@ -6,7 +6,6 @@ router.get('/',(req,res,next)=>{
     res.send('INDEX /recipes');
     });
 
-
 //GET index /recipes
 //GET new  /recipes/new
 router.get('/new',(req,res,next)=>{

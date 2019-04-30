@@ -9,7 +9,8 @@ const bodyParser = require('body-parser')
 
 const routes = require('./routes/index');
 const recipes = require('./routes/recipes')
-// const users = require('./routes/user')
+const reviews = require('./routes/reviews' )
+// const users = require('./routes/users')
 
 // Initialize app
 const app = express();
@@ -34,7 +35,8 @@ app.use(express.static(__dirname+"/public"));
 //Router
 app.use('/', routes);
 app.use('/recipes', recipes)
-// app.use('/user' user)
+app.use('/recipes/:id/reviews', reviews)
+// app.use('/users' users)
 
 // Listener
 const PORT = process.env.PORT || 3000
