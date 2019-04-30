@@ -22,7 +22,6 @@ const RecipeSchema = new Schema({
     }]
 })
 
-Schema.plugin(passportLocalMongoose);
 
 /*
 Id: ObjectID()
