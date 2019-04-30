@@ -6,4 +6,6 @@ router.get('/',(req,res)=>{
     res.render('../views/layout');
     });
 
+
+
 module.exports = router
