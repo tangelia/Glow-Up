@@ -1,5 +1,6 @@
 let express = require('express')
 let router = express.Router()
+const passport = require('passport')
 const {postRegister} = require('../controller')
 const {errorHandler} = require('../middleware')
 
@@ -22,9 +23,10 @@ router.get('/login', (req, res, next) => {
   });
   
   //POST create /user login
-router.post('/login', (req, res, next) => {
-    res.send('POST /login');
-  });
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/', 
+  failureRedirect: '/login'
+}));
 
 // GET users profile 
 router.get('/profile', (req, res, next) => {
