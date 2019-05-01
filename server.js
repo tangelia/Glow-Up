@@ -3,6 +3,8 @@ const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const passport = require('passport')
+const User = require('./models/user')
 // const path =require ('path')
 
 
@@ -30,6 +32,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname+"/public"));
 
 
+//Config passport and session
+// CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 //Router
