@@ -9,5 +9,11 @@ module.exports = {
 //NEW recipe
   newRecipe(req, res, next){
     res.render('recipes/new');
+},
+//CREATE recipe
+async createRecipe(req, res, next){
+    //use req.body to create new recipe
+   let recipe = await Recipe.create(req.body);
+    res.redirect(`/recipes/${recipe.id}`);
 }
 }
