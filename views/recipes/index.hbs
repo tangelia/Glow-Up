@@ -1,3 +1,18 @@
 <main>
 <h1>Recipes Index!</h1>
+{{#each recipe}}
+<div class="recipe-container">
+
+				<img width="200px" height="200px" src={{img}}>
+
+				<a href="{{_id}}"><h3>See more</h3></a>
+
+				<p>$ {{price}} each </p>
+
+			</div>
+
+		{{/each}}
+
+<a href="/new"><h2>Create a new recipe</h2></a>
+<div><a href="recipes/{{recipe._id}}">View More</a></div>
 </main>

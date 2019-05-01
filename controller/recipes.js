@@ -20,6 +20,12 @@ async createRecipe(req, res, next){
 //SHOW recipe
 async showRecipe(req, res, next){
    let recipe = await Recipe.findById(req.params.id);
-    res.render('/recipes/show', {recipe});
+    res.render('recipes/show', {recipe});
+},
+//EDIT recipe
+async editRecipe(req, res, next){
+    let recipe = await Recipe.findById(req.params.id);
+     res.render('recipes/edit', {recipe});
+
 }
 }

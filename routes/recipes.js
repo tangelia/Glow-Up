@@ -4,7 +4,8 @@ const {errorHandler} = require('../middleware')
 const {getRecipes, 
        newRecipe,
        createRecipe,
-       showRecipe} = require('../controller/recipes')
+       showRecipe,
+       editRecipe} = require('../controller/recipes')
 
 //GET post index /recipes
 router.get('/', errorHandler(getRecipes));
@@ -21,9 +22,7 @@ router.post('/', errorHandler(createRecipe));
 router.get('/:id',errorHandler(showRecipe));
 
 //GET edit /recipes/:id/edit
-router.get('/:id/edit',(req,res,next)=>{
-    res.send('EDIT /recipes/:id/edit');
-     });
+router.get('/:id/edit',errorHandler(editRecipe));
 
 //PUT update  /recipes/:id
 router.put('/:id',(req,res,next)=>{
