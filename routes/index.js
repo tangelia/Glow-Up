@@ -28,6 +28,11 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/login'
 }));
 
+// GET /logout
+router.get('/logout',(req, res, next) =>{
+  req.logout();
+  res.redirect('/');
+});
 // GET users profile 
 router.get('/profile', (req, res, next) => {
     res.send('GET /profile');
