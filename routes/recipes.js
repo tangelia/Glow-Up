@@ -1,33 +1,32 @@
 let express = require('express')
 let router = express.Router()
 const {errorHandler} = require('../middleware')
-const {getRecipes, 
-       newRecipe,
-       createRecipe,
-       showRecipe,
-       editRecipe} = require('../controller/recipes')
+const {recipeIndex, 
+       recipeNew,
+       recipeCreate,
+       recipeShow,
+       recipeEdit,
+       recipeUpdate} = require('../controller/recipes')
 
 //GET post index /recipes
-router.get('/', errorHandler(getRecipes));
+router.get('/', errorHandler(recipeIndex));
 
 
 //GET new  /recipes/new
-router.get('/new', newRecipe);
+router.get('/new', recipeNew);
 
 //POST create /recipes
-router.post('/', errorHandler(createRecipe));
+router.post('/', errorHandler(recipeCreate));
 
 
 //GET show /recipes/:id
-router.get('/:id',errorHandler(showRecipe));
+router.get('/:id',errorHandler(recipeShow));
 
 //GET edit /recipes/:id/edit
-router.get('/:id/edit',errorHandler(editRecipe));
+router.get('/:id/edit',errorHandler(recipeEdit));
 
 //PUT update  /recipes/:id
-router.put('/:id',(req,res,next)=>{
-    res.send('UPDATE /recipes/:id');
-     });
+router.put('/:id',errorHandler(recipeUpdate));
 
 //DELETE delete /recipes/:id
 router.delete('/:id',(req,res,next)=>{
