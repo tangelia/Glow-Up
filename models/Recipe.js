@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
 const RecipeSchema = new Schema({
-    Id: ObjectID(),
     category: String,
     title: String,
-    imgage: String,
+    imgage: [ { url: String, public_id: String } ],
     description: String,
     preptime: String,
     ingredients:[{String}],
@@ -14,7 +13,6 @@ const RecipeSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }],
-    created:Date.now(),
     reviews:[{
         type: Schema.Types.ObjectId,
         ref: 'Review'

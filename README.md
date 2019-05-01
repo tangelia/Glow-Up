@@ -22,12 +22,14 @@ GLOW UP: a DIY beauty recipe exchange. .
 * Express
 * MongoDB
 * Bootstrap
+* Passport
+* Handlebars
 
 
 ## Features
-Users can .
-Users can .
-Users can .
+Users can create a login with password and profile.
+Users can edit, delete and create reviews on recipes.
+Users can submit, edit and delete recipes.
 
 
 
@@ -46,7 +48,7 @@ ERD:
 
 
 ## <a name="nextsteps"></a>Project Next Steps
-* .
+* Admin login platform
 * .
 * .
 * .
