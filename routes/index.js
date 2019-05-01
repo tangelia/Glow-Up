@@ -13,9 +13,7 @@ router.get('/register', (req, res, next) => {
   });
   
   //POST create register user
-router.post('/register', (req, res, next) => {
-    res.send('POST /register');
-  });
+router.post('/register', postRegister);
 
 // GET users login
 router.get('/login', (req, res, next) => {
