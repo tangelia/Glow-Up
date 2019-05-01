@@ -13,7 +13,7 @@ module.exports = {
 //CREATE recipe
 async recipeCreate(req, res, next){
     //use req.body to create new recipe
-   let recipe = await Recipe.create(req.body.post);
+   let recipe = await Recipe.create(req.body);
     res.redirect(`/recipes/${recipe._id}`);
 },
 
@@ -32,5 +32,10 @@ async recipeEdit(req, res, next){
 async recipeUpdate(req, res, next){
     let recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body.post);
      res.redirect(`/recipes/${recipe._id}`);
+},
+//DELETE recipe
+async recipeDelete(req, res, next){
+    let recipe = await Recipe.findByIdAndRemove(req.params.id);
+     res.redirect('/recipes', {recipe});
 }
 }

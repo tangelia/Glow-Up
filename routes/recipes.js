@@ -6,7 +6,8 @@ const {recipeIndex,
        recipeCreate,
        recipeShow,
        recipeEdit,
-       recipeUpdate} = require('../controller/recipes')
+       recipeUpdate,
+       recipeDelete } = require('../controller/recipes')
 
 //GET post index /recipes
 router.get('/', errorHandler(recipeIndex));
@@ -29,9 +30,8 @@ router.get('/:id/edit',errorHandler(recipeEdit));
 router.put('/:id',errorHandler(recipeUpdate));
 
 //DELETE delete /recipes/:id
-router.delete('/:id',(req,res,next)=>{
-    res.send('DELETE /recipes/:id');
-     });
+router.delete('/:id', errorHandler(recipeDelete));
+    
 
 
 

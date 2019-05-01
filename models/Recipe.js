@@ -7,7 +7,7 @@ const RecipeSchema = new Schema({
     image: [ { url: String, public_id: String } ],
     description: String,
     preptime: String,
-    ingredients:[{String}],
+    ingredients:String,
     directions: String,
     author: [{
         type: Schema.Types.ObjectId,

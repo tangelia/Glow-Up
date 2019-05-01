@@ -42,7 +42,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname+"/public"));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //Config passport and session
 app.use(session({
@@ -62,8 +62,8 @@ passport.deserializeUser(User.deserializeUser());
 
 //Router
 app.use('/', routes);
-app.use('/recipes', recipes)
-app.use('/recipes/:id/reviews', reviews)
+app.use('/recipes', recipes);
+app.use('/recipes/:id/reviews', reviews);
 // app.use('/users' users)
 
 // Listener

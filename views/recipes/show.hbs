@@ -6,5 +6,12 @@
     <div>ingredients:{{recipe.ingredients}}</div>
     <div>directions: {{recipe.directions}}</div>
 
-<div><a href="/recipes/{{recipe._id}}/edit">Edit Recipe</a></div>
+<div>
+<a href="{{recipe._id}}/edit">
+<button>Edit</button></a>
+</div>
+<div>
+<form action="{{recipe.id}}" ?_method="DELETE">
+<input type="submit" value="Delete"></form>
+</div>
 </main>
