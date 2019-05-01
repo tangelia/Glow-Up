@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const User = require('./models/User')
 const session = require('express-session')
+const mongoose = require('mongoose')
 // const path =require ('path')
 
 
@@ -18,6 +19,15 @@ const reviews = require('./routes/reviews' )
 // Initialize app
 const app = express();
 
+//Connect database
+mongoose.connect('mongodb://localhost:27017/Glow-Up', {useNewUrlParser: true});
+mongoose.set('useCreateIndex', true);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+console.log('we\'re connected!')
+});
 
 //Middleware
 app.use(express.json());
