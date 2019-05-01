@@ -1,5 +1,6 @@
 let express = require('express')
 let router = express.Router()
+const {postRegister} = require('../controller/index')
 
 //Home route
 router.get('/',(req,res)=>{

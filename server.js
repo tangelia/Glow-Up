@@ -33,7 +33,13 @@ app.use(express.static(__dirname+"/public"));
 
 
 //Config passport and session
-// CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
+app.use(session({
+  secret: 'moonbeams mommy',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+
 passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
