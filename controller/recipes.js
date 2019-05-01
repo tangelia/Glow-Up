@@ -14,6 +14,12 @@ module.exports = {
 async createRecipe(req, res, next){
     //use req.body to create new recipe
    let recipe = await Recipe.create(req.body);
-    res.redirect(`/recipes/${recipe.id}`);
+    res.redirect(`/recipes/${Recipe.id}`);
+},
+
+//SHOW recipe
+async showRecipe(req, res, next){
+   let recipe = await Recipe.findById(req.params.id);
+    res.render('/recipes/show', {recipe});
 }
 }

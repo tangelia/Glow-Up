@@ -3,7 +3,8 @@ let router = express.Router()
 const {errorHandler} = require('../middleware')
 const {getRecipes, 
        newRecipe,
-       createRecipe} = require('../controller/recipes')
+       createRecipe,
+       showRecipe} = require('../controller/recipes')
 
 //GET post index /recipes
 router.get('/', errorHandler(getRecipes));
@@ -17,9 +18,7 @@ router.post('/', errorHandler(createRecipe));
 
 
 //GET show /recipes/:id
-router.get('/:id',(req,res,next)=>{
-    res.send('SHOW /recipes/:id');
-     });
+router.get('/:id',errorHandler(showRecipe));
 
 //GET edit /recipes/:id/edit
 router.get('/:id/edit',(req,res,next)=>{
