@@ -8,6 +8,13 @@ router.get('/',(req,res)=>{
     res.render('../views/layout');
     });
 
+router.get('/about',(req,res)=>{
+  res.render('../views/about');
+});
+router.get('/contact',(req,res)=>{
+  res.render('../views/contact');
+})
+
 // GET users listing. 
 router.get('/register', (req, res, next) => {
     res.send('GET /register');
