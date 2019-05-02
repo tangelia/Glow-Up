@@ -7,12 +7,12 @@ if (process.env.MONGODB_URI) {
   else {
     mongoose.connect('mongodb://localhost/Glow_Up');
   }
-  mongoose.connection.on('error', function(err) {
+  mongoose.connection.on('error', (err) => {
     console.error('MongoDB connection error: ' + err);
     process.exit(-1);
     }
   );
-  mongoose.connection.once('open', function() {
+  mongoose.connection.once('open',()=> {
     console.log("Mongoose has connected to MongoDB!");
   });
 

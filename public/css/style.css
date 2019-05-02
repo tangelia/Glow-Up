@@ -1,0 +1,8 @@
+body{
+    height: 1000px;
+    text-align: center;
+    background-color: #f2efed; /* For browsers that do not support gradients */
+    background-image: linear-gradient(#f2efed, grey); 
+    background: cover;
+      
+  }
