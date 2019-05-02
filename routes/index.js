@@ -13,7 +13,7 @@ router.get('/about',(req,res)=>{
 });
 
 router.get('/contact',(req,res)=>{
-  res.render('../recipes/contact', {title: 'Contact'});
+  res.render('../contact', {title: 'Contact'});
 });
 
 // GET users listing. 
