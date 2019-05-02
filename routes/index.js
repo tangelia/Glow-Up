@@ -9,11 +9,12 @@ router.get('/',(req,res)=>{
     });
 
 router.get('/about',(req,res)=>{
-  res.render('../views/about');
+  res.render('../recipes/about', {title: 'About'});
 });
+
 router.get('/contact',(req,res)=>{
-  res.render('../views/contact');
-})
+  res.render('../recipes/contact', {title: 'Contact'});
+});
 
 // GET users listing. 
 router.get('/register', (req, res, next) => {
