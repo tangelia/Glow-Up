@@ -13,7 +13,14 @@ module.exports = {
 //CREATE recipe
 async recipeCreate(req, res, next){
     //use req.body to create new recipe
-   let recipe = await Recipe.create(req.body);
+   let recipe = await Recipe.create({
+    title: req.body.title,
+    image: req.body.image,
+    description: req.body.description,
+    preptime: req.body.preptime,
+    ingredients:req.body.ingredients,
+    directions: req.body.directions,
+  ));
     res.redirect(`/recipes/${recipe._id}`);
 },
 
