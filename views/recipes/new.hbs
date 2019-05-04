@@ -2,6 +2,14 @@
 <h1>New recipe!</h1>
 <div>
 <form action="/recipes" method="POST">
+    <div><select  name="category">
+		<option value="body">Body</option>
+		<option value="hair">Hair</option>
+		<option value="face">Face</option>
+		<option value="makeup">Makeup</option>
+		<option value="home">Home</option>
+		<option value="bath">Bath</option>
+	</select></div>
 	<div><input type="text" name="name" placeholder="Title"></div>
 	<div><input type="text" name="image" placeholder="image"></div>
     <div><input type="textarea" name="description" placeholder="description"></div>

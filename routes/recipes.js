@@ -12,7 +12,6 @@ const {recipeIndex,
 //GET post index /recipes
 router.get('/', errorHandler(recipeIndex));
 
-
 //GET new  /recipes/new
 router.get('/new', recipeNew);
 

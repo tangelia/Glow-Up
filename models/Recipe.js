@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const RecipeSchema = new Schema({
     category: String,
     title: String,
-    image: [ { url: String, public_id: String } ],
+    image: String,
     description: String,
     preptime: String,
     ingredients:String,
