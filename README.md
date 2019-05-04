@@ -34,13 +34,16 @@ Users can submit, edit and delete recipes.
 
 
 Wireframe:
-<img src="" alt="Wireframe"/>
-<img src="" alt="Wireframe"/>
+<img src="public/images/IMG_20190430_102138.jpg" alt="Wireframe"/>
+<img src="public/images/IMG_20190430_102149.jpg" alt="Wireframe"/>
+<img src="public/images/IMG_20190430_102155.jpg" alt="Wireframe"/>
+<img src="public/images/IMG_20190430_102158.jpg" alt="Wireframe"/>
+<img src="public/images/IMG_20190430_102202.jpg" alt="Wireframe"/>
 
 
 
 ERD:
-<img src="" alt="Entity Relationship Diagram"/>
+<img src="/public/images/Blank ERD.png" alt="Entity Relationship Diagram"/>
 
 
 ## <a name="design"></a>Design

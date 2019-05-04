@@ -49,7 +49,7 @@ let newRecipes = [
         title: "Easy Olive Oil Facial Cleanser",
         image: [ { url: String, public_id: String } ],
         description: String,
-        preptime: String,
+        preptime: "5 minutes",
         ingredients:"4 T Cold pressed extra virgin olive oil (approx. 2 oz), 2 tsp raw honey (can substitute vegetable glycerin), 20 drops sweet orange essential oil",
 
         directions: "Combine in a small bottle, dark glass preferred (this helps it keep its potency longer). Shake before use to combine ingredients; separation is natural!",,
