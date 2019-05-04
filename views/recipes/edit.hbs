@@ -3,15 +3,19 @@
 
 
 <div id="edit-form" class="recipe-container-show">
-<form action="{{recipe._id}}?_method=PUT" method="POST">
-	<div><select  name="category">
+
+	<div id="img-preview">
+			<img src="{{recipe.image}}">
+	</div>	
+<form action="{{recipe.id}}?_method=PUT" method="POST">
+	{{!-- <div><select  name="category">
 		<option value="body">Body</option>
 		<option value="hair">Hair</option>
 		<option value="face">Face</option>
 		<option value="makeup">Makeup</option>
 		<option value="home">Home</option>
 		<option value="bath">Bath</option>
-	</select></div>
+	</select></div> --}}
 	<div><input type="text" name="title" placeholder="Title" value={{recipe.title}}></div>
 	<div><input type="text" name="image" placeholder="Image" value={{recipe.image}}></div>
     <div><input type="textarea" name="description" placeholder="Desecription" value={{recipe.description}}></div>
@@ -20,11 +24,9 @@
     <div><input type="textarea" name="directions" placeholder="Directions" value={{recipe.directions}}></div>
     <div><input type="submit" value="Submit">
 </form>
-		<div id="img-preview">
-			<img src="{{recipe.image}}">
-		</div>
+		
 
-	</div>
+</div>
 <a href="/">Return to Home Page</a>
 </main>
 
