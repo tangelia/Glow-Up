@@ -1,7 +1,23 @@
 <main>
+
 <h1>Recipes Index!</h1>
 
+{{#each recipes}}
+<div>
+	<h2>{{recipe.title}}</h2>
+    <div>image:
+        {{recipe.image}}</div>
+    <div>description:
+         {{recipe.description}}</div>
+    <div>preptime: 
+        {{recipe.preptime}}</div>
+    <div>ingredients:
+        {{recipe.ingredients}}</div>
+    <div>directions:
+         {{recipe.directions}}</div>
+</div>
+{{/each}}
 
 <a href="views/recipes/new.hbs"><h2>Create a new recipe</h2></a>
-<div><a href="recipes/{{recipe.id}}">View More</a></div>
+<div><a href="recipes/{{recipe._id}}">View More</a></div>
 </main>

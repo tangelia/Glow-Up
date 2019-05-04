@@ -12,11 +12,11 @@
          {{recipe.directions}}</div>
 
 <div>
-<a href="{{recipe.id}}/edit">
-<button>Edit</button></a>
+<a href="/recipes/{{recipe._id}}/edit">
+<button>Edit Recipe</button></a>
 </div>
 <div>
-<form action="{{recipe.id}}" ?_method="DELETE">
+<form action="{{recipe._id}}" ?_method="DELETE">
 <input type="submit" value="Delete"></form>
 </div>
 </main>
