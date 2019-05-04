@@ -20,7 +20,7 @@ async recipeCreate(req, res, next){
     preptime: req.body.preptime,
     ingredients:req.body.ingredients,
     directions: req.body.directions,
-  ));
+   });
     res.redirect(`/recipes/${recipe._id}`);
 },
 
