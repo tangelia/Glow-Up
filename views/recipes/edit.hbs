@@ -1,15 +1,15 @@
 <main>
 <h1>Edit recipe!</h1>
-<a href="/">Return to Home Page</a>
+
 
 <div id="edit-form" class="recipe-container-show">
 <form action="{{recipe._id}}?_method=PUT" method="POST">
-	<div><input type="text" name="title" placeholder={{recipe.title}}></div>
-	<div><input type="text" name="image" placeholder={{recipe.image}}></div>
-    <div><input type="textarea" name="description" placeholder={{recipe.description}}></div>
-	<div><input type="text" name="prep time" placeholder={{recipe.preptime}}></div>
-	<div><input type="text" name="ingredients" placeholder={{recipe.ingredients}}></div>
-    <div><input type="textarea" name="direction" placeholder={{recipe.directions}}></div>
+	<div><input type="text" name="title" value={{recipe.title}}></div>
+	<div><input type="text" name="image" value={{recipe.image}}></div>
+    <div><input type="textarea" name="description" value={{recipe.description}}></div>
+	<div><input type="text" name="prep time" value={{recipe.preptime}}></div>
+	<div><input type="text" name="ingredients" value={{recipe.ingredients}}></div>
+    <div><input type="textarea" name="direction" value={{recipe.directions}}></div>
     <div><input type="submit" value="Submit">
 </form>
 		<div id="img-preview">
@@ -17,6 +17,7 @@
 		</div>
 
 	</div>
+<a href="/">Return to Home Page</a>
 </main>
 
   
