@@ -21,8 +21,9 @@ const reviews = require('./routes/reviews' )
 const app = express();
 
 //Connect database
-mongoose.connect('mongodb://localhost:27017/Glow-Up', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/Glow-Up', {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -41,7 +42,7 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname+"/public"));
+app.use('/public', express.static("public"));
 app.use(methodOverride('_method'));
 
 //Config passport and session

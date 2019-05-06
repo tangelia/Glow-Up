@@ -1,32 +1,36 @@
-let express = require('express')
-let router = express.Router({mergeParams: true})
+const express = require('express')
+const router = express.Router()
+const {errorHandler} = require('../middleware')
+const {reviewIndex, 
+       reviewNew,
+       reviewCreate,
+       reviewShow,
+    //    reviewEdit,
+       reviewUpdate,
+       reviewDelete } = require('../controller/reviews')
 
-//GET post index/recipes/:id/reviews
-router.get('/',(req,res,next)=>{
-    res.send('INDEX /recipes/:id/reviews');
-    });
+//GET post index /reviews
+router.get('/', errorHandler(reviewIndex));
+
+//GET new  /reviews/new
+router.get('/new', reviewNew);
+
+//POST create /reviews
+router.post('/', errorHandler(reviewCreate));
 
 
-//POST create /recipes/:id/reviews
-router.post('/',(req,res,next)=>{
-    res.send('CREATE /recipes/:id/reviews');
-     });
+//GET show /reviews/:id
+router.get('/:id',errorHandler(reviewShow));
 
+//GET edit /reviews/:id/edit
+// router.get('/:id/edit',errorHandler(reviewEdit));
 
-//GET edit /recipes/:id/reviews/edit
-router.get('/:review_id/edit',(req,res,next)=>{
-    res.send('EDIT /recipes/:id/reviews/review_id/edit');
-     });
+//PUT update  /reviews/:id
+router.put('/:id',errorHandler(reviewUpdate));
 
-//PUT update  /recipes/:id/reviews
-router.put('/:review_id',(req,res,next)=>{
-    res.send('UPDATE /recipes/:id/reviews/review_id');
-     });
-
-//DELETE delete /recipes/:id/reviews
-router.delete('/:review_id',(req,res,next)=>{
-    res.send('DELETE /recipes/:id/reviews/review_id');
-     });
+//DELETE delete /reviews/:id
+router.delete('/:id', errorHandler(reviewDelete));
+    
 
 
 
