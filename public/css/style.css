@@ -5,10 +5,10 @@ body{
     background-color: #f2efed; /* For browsers that do not support gradients */
     background-image: linear-gradient(#f2efed, #2cb4cc); 
     background: cover;
-    font-family: 'Lato', sans-serif;
-    
+    font-family: 'Lato', sans-serif; 
       
   }
+
  
  #nav-items {
    height: 80px;

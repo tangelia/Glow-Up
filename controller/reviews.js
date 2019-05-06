@@ -12,7 +12,7 @@ module.export = {
 
     //New review
     reviewNew (req, res){
-        res.render("reviews/new");
+        res.render('reviews/new');
     },
     //Show review
     async reviewShow (req,res){
@@ -25,12 +25,12 @@ module.export = {
          res.redirect("/reviews");
     },
     //Updates review and returns to index.hbs
-    aync reviewUpdate (req,res){
+    async reviewUpdate (req,res){
         let reviews =  await Review.findByIdAndUpdate(req.params.reviewId, req.body);
             res.redirect("/reviews");
     },
     //deletes and returns to index.hbs
-    reviewDelete (req,res){
+    async reviewDelete (req,res){
         let reviews =  await Review.findByIdAndRemove(req.params.reviewId);
             res.redirect("/reviews");
         }

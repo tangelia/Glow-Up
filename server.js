@@ -12,9 +12,9 @@ const methodOverride = require('method-override')
 
 
 
-const routes = require('./routes/index');
-const recipes = require('./routes/recipes')
-const reviews = require('./routes/reviews' )
+const routes = require('./routes/index.js');
+const recipes = require('./routes/recipes.js')
+const reviews = require('./routes/reviews.js' )
 // const users = require('./routes/users')
 
 // Initialize app

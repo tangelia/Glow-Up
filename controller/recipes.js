@@ -30,12 +30,12 @@ async recipeEdit(req, res, next){
 },
 //Update recipe
 async recipeUpdate(req, res, next){
-    let recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body);
-     res.redirect(`/recipes/${recipe.id}`);
+    let recipe = await Recipe.findByIdAndUpdate(req.params.recipeId, req.body);
+     res.redirect('/recipes');
 },
 //DELETE recipe
 async recipeDelete(req, res, next){
-    let recipe = await Recipe.findByIdAndRemove(req.params.recipeid);
+    let recipe = await Recipe.findByIdAndRemove(req.params.recipeId);
      res.redirect('/recipes');
 }
 }
