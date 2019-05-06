@@ -1,0 +1,14 @@
+{{!-- shows all reviews --}}
+<header>
+<h1>Leave a Review</h1>
+<h2><a href="/reviews/new">Add a New Review</a><h2>
+</header>
+<main class="mainArticle">
+{{#each review}}
+<a href="/reviews/{{id}}" class="article">
+<img>
+<p>Comment: {{comment}}</p>
+<p>Rating: ${{rating}}</p>
+</a>
+{{/each}}
+</main>

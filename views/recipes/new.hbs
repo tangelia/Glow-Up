@@ -1,23 +1,11 @@
-<main>
-<h1>New recipe!</h1>
-<div>
-<form action="/recipes" method="POST">
-    {{!-- <div><select  name="category">
-		<option value="body">Body</option>
-		<option value="hair">Hair</option>
-		<option value="face">Face</option>
-		<option value="makeup">Makeup</option>
-		<option value="home">Home</option>
-		<option value="bath">Bath</option>
-	</select></div> --}}
-	<div><input type="text" name="name" placeholder="Title"></div>
-	<div><input type="text" name="image" placeholder="Image"></div>
-    <div><input type="textarea" name="description" placeholder="Description"></div>
-	<div><input type="text" name="prep time" placeholder="Prep Time"></div>
-	<div><input type="text" name="ingredients" placeholder="Ingredients"></div>
-    <div><input type="textarea" name="directions" placeholder="Directions"></div>
-    <input type="submit" value="Submit">
+    {{!-- form to create new recipe --}}
+<header>
+<form method="POST" action="/recipes/">
+    <p>Title:</p><input type="text" name="title"></br>
+    <p>Description:</p><input type="text" name="description"></br>
+    <p>Ingredients:</p><input type="text" name="ingredients"></br>
+    <p>Directions:</p><input type="text" name="directions"></br>
+    <input type="submit" value="Submit" class="button">
 </form>
-</div>
-</main>
+</header>
  

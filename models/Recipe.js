@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require('../db/connection.js');
 const Schema = mongoose.Schema
 
 const RecipeSchema = new Schema({
-    category: String,
+    
     title: String,
     image: String,
     description: String,
-    preptime: String,
     ingredients:String,
     directions: String,
     author: [{
@@ -20,17 +19,4 @@ const RecipeSchema = new Schema({
 })
 
 
-/*
-Id: ObjectID()
-category: "string"
-Title:"string"
-img:"string"
-description: "string"
-ingredients: array of objects
-prep time:"string"
-directions:"string"
-created: Date.now()
-author:OjectID pointing to user-ID
-reviews: array of objects referencing Reviews
-*/
 module.exports = mongoose.model('Recipe', RecipeSchema)

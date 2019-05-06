@@ -1,23 +1,16 @@
-<main>
-
-<h1>Recipes Index!</h1>
-
+{{!-- shows all Recipes --}}
+<header>
+<h1>Recipes</h1>
+<h2><a href="/recipes/new">Add a Recipe</a></h2>
+</header>
+<main class="mainArticle">
 {{#each recipes}}
-<div>
-	<h2>{{recipe.title}}</h2>
-    <div>image:
-        {{recipe.image}}</div>
-    <div>description:
-         {{recipe.description}}</div>
-    <div>preptime: 
-        {{recipe.preptime}}</div>
-    <div>ingredients:
-        {{recipe.ingredients}}</div>
-    <div>directions:
-         {{recipe.directions}}</div>
-</div>
+<a href="/recipes/{{id}}" class="article">
+<img>
+<li>Title: {{title}}</li>
+<li>Description: {{description}}</li>
+<li>Ingredients: {{ingredients}}</li>
+<li>Directions: {{directions}}</li>
+</a>
 {{/each}}
-
-<a href="/recipes/new"><h2>Create a new recipe</h2></a>
-<div><a href="recipes/{{recipe._id}}">View More</a></div>
 </main>

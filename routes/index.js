@@ -4,12 +4,13 @@ const {postRegister, postLogin, getLogout} = require('../controller')
 const {errorHandler} = require('../middleware')
 
 //Home route
+
 router.get('/',(req,res)=>{
     res.render('../views/layout');
     });
 
 router.get('/about',(req,res)=>{
-  res.render('../recipes/about', {title: 'About'});
+  res.render('../about', {title: 'About'});
 });
 
 router.get('/contact',(req,res)=>{

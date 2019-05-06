@@ -14,7 +14,7 @@ module.exports = {
 async recipeCreate(req, res, next){
     //use req.body to create new recipe
    let recipe = await Recipe.create(req.body);
-    res.redirect(`/recipes/${recipe.id}`);
+    res.redirect('/recipes');
 },
 
 //SHOW recipe
@@ -35,7 +35,7 @@ async recipeUpdate(req, res, next){
 },
 //DELETE recipe
 async recipeDelete(req, res, next){
-    let recipe = await Recipe.findByIdAndRemove(req.params.id);
-     res.redirect('/recipes', {recipe});
+    let recipe = await Recipe.findByIdAndRemove(req.params.recipeid);
+     res.redirect('/recipes');
 }
 }

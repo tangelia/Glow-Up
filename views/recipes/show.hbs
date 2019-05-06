@@ -1,22 +1,26 @@
+{{!-- shows one recipe --}}
+<div class="content">
+<header>
+    {{!--  information --}}
+    <ul>
+<li><h1> {{recipe.title}}</h1></li>
+<li><h3> description:{{recipe.description}} hours</h3></li>
+<li><h3> ingredients: </br>{{recipe.ingredients}}</h3></li>
+<li><h3> directions: </br>{{recipe.directions}}</h3></li>
+</ul>
+</header>
 <main>
-    <h2>{{recipe.title}}</h2>
-    <div>image:
-        {{recipe.image}}</div>
-    <div>description:
-         {{recipe.description}}</div>
-    <div>preptime: 
-        {{recipe.preptime}}</div>
-    <div>ingredients:
-        {{recipe.ingredients}}</div>
-    <div>directions:
-         {{recipe.directions}}</div>
-
-<div>
-<a href="/recipes/{{recipe._id}}/edit">
-<button>Edit Recipe</button></a>
-</div>
-<div>
-<form action="{{recipe._id}}" ?_method="DELETE">
-<input type="submit" value="Delete"></form>
-</div>
+<form action="/recipes/{{recipe.id}}?_method=put" method="POST">
+    <p>Title:</p><input type="text" name="title"></br>
+    <p>Description: </p><input type="number" name="description"></br>
+    <p>Ingredients:</p><input type="text" name="ingredients" class="biggerInputBox"></br>
+    <p>Directions:</p><input type="text" name="directions" class="biggerInputBox"></br>
+{{!--  edit --}}
+    <input type="submit" value="Edit" class="button">
+</form>
+<form action="/greenWays/{{recipe._id}}?_method=delete" method="POST">
+{{!-- delete  --}}
+<input type="submit" value="Delete" class="button">
+</form>
 </main>
+</div>

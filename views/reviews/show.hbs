@@ -1,0 +1,23 @@
+{{!-- shows one review --}}
+<div class="content">
+<header>
+    {{!-- review information --}}
+<ul>
+<li><h1>Comments: {{review.comment}}</h1></li>
+<li><h4>Rating: ${{review.rating}}</h4></li>
+</ul>
+
+</header>
+<main>
+<form action="/reviews/{{review.id}}?_method=put" method="POST">
+    <p>Edit Comment:</p><input type="text" name="comment" class="biggerInputBox"></br>
+    <p>Ratings:</p><input type="number" name="ratings"></br>
+{{!-- Edit --}}
+    <input type="submit" value="Edit" class="button">
+</form>
+<form action="/reviews/{{review._id}}?_method=delete" method="POST">
+{{!-- delete --}}
+<input type="submit" value="Delete" class="button">
+</form>
+</main>
+</div>

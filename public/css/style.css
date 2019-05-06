@@ -1,8 +1,36 @@
+
 body{
     height: 1000px;
     text-align: center;
     background-color: #f2efed; /* For browsers that do not support gradients */
-    background-image: linear-gradient(#f2efed, grey); 
+    background-image: linear-gradient(#f2efed, #2cb4cc); 
     background: cover;
+    font-family: 'Lato', sans-serif;
+    
       
+  }
+ 
+ #nav-items {
+   height: 80px;
+   background-color: transparent;
+   border: none;
+   color: #2cb4cc;
+   z-index: 100;
+   transition: background-color 1s ease 0s;
+ }
+ 
+ a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
   }

@@ -13,12 +13,4 @@ const UserSchema = new Schema({
 
 UserSchema.plugin(passportLocalMongoose);
 
-/*
-Name: "string"
-Username:"string"
-profile_img:"string"
-email: "string"
-password: Hash from Passport
-recipes: array of objects referencing Recipes
-*/
 module.exports = mongoose.model('User', UserSchema)
