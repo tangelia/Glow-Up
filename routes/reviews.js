@@ -2,7 +2,7 @@ let express = require('express')
 let router = express.Router()
 const {errorHandler} = require('../middleware')
 const {reviewIndex, 
-       reviewNew,
+       // reviewNew,
        reviewCreate,
        reviewShow,
       //  reviewEdit,
