@@ -21,7 +21,7 @@ const reviews = require('./routes/reviews.js')
 const app = express();
 
 //Connect database
-mongoose.connect('mongodb://localhost/Glow-Up', {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost/Glow-Up', {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
