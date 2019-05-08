@@ -2,18 +2,18 @@ let express = require('express')
 let router = express.Router()
 const {errorHandler} = require('../middleware')
 const {reviewIndex, 
-       // reviewNew,
+       reviewNew,
        reviewCreate,
        reviewShow,
-      //  reviewEdit,
+       reviewEdit,
        reviewUpdate,
        reviewDelete } = require('../controller/reviews')
 
 //GET post index /reviews
 router.get('/', errorHandler(reviewIndex));
 
-// //GET new  /reviews/new
-// router.get('/new', reviewNew);
+//GET new  /reviews/new
+router.get('/new', errorHandler( reviewNew) );
 
 //POST create /reviews
 router.post('/', errorHandler(reviewCreate));
@@ -23,7 +23,7 @@ router.post('/', errorHandler(reviewCreate));
 router.get('/:id',errorHandler(reviewShow));
 
 // GET edit /reviews/:id/edit
-// router.get('/:id/edit',errorHandler(reviewEdit));
+router.get('/:id/edit',errorHandler(reviewEdit));
 
 //PUT update  /reviews/:id
 router.put('/:id',errorHandler(reviewUpdate));

@@ -6,8 +6,10 @@ const {errorHandler} = require('../middleware')
 //Home route
 
 router.get('/',(req,res)=>{
-    res.render('../views/layout');
+    res.render('layout');
     });
+
+    // views/ layout 
 
 router.get('/about',(req,res)=>{
   res.render('../about', {title: 'About'});

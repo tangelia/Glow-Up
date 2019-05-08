@@ -1,5 +1,5 @@
 const express = require('express');
-const favicon = require('serve-favicon')
+// const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -14,7 +14,7 @@ const methodOverride = require('method-override')
 
 const routes = require('./routes/index.js');
 const recipes = require('./routes/recipes.js')
-const reviews = require('./routes/reviews.js' )
+const reviews = require('./routes/reviews.js')
 // const users = require('./routes/users')
 
 // Initialize app

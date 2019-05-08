@@ -11,13 +11,13 @@ module.export = {
      },
 
     //New review
-    reviewNew (req, res){
+   async  reviewNew (req, res){
         res.render('reviews/new');
     },
     //Show review
     async reviewShow (req,res){
         let reviews =  await Review.findById(req.params.reviewId);
-            res.render("reviews/show", reviews);
+            res.render('reviews/show', reviews);
         },
     //Create review
      async reviewCreate(req,res) {
