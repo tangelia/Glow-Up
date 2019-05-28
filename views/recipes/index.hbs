@@ -1,16 +1,44 @@
-{{!-- shows all Recipes --}}
-<header>
-<h1>Recipes</h1>
-<h2><a href="/recipes/new">Add a Recipe</a></h2>
-</header>
-<main class="mainArticle">
-{{#each recipes}}
-<a href="/recipes/{{id}}" class="article">
-<img>
-<li>Title: {{title}}</li>
-<li>Description: {{description}}</li>
-<li>Ingredients: {{ingredients}}</li>
-<li>Directions: {{directions}}</li>
-</a>
-{{/each}}
-</main>
+<h1>My Recipe Dashboard </h1>
+<a href="/users/{{userId}}/recipes/new"><button class="btn">Create New Recipe</button></a>
+
+
+<div id="list">
+
+    {{#each arrayOfRecipes}}
+    <div class="recipe">
+        <div class="row">
+            <h2>{{this.title}}</h2>
+        <div>
+            <label>Description:</label><br>
+            {{this.description}}
+        </div><br>
+        <div>
+            <label>Featured Image:</label><br>
+            <img src="{{this.imageUrl}}" style="height:100px;" alt="Recipe Image">
+        </div><br>
+        <div>
+            <label>Ingredients:</label><br>
+            {{this.ingredients}}
+        </div><br>
+                <div>
+            <label>Directions:</label><br>
+            {{this.directions}}
+        </div><br>
+        {{/each}}
+        {{!--<div>this.imageUrl--}}     
+        
+
+    </ul>
+    </div>
+    <a href="/users/{{../user.id}}/recipes/{{this.id}}/edit"><button class="btn">Edit</button></a>
+    <a href="/users/{{../user.id}}/recipes/{{this._id}}"><button class="btn secondary">View</button></a>
+    <a href="/users/{{../user.id}}/recipes/{{this._id}}/delete"><button class="btn delete">Delete</button></a>
+    {{/each}}
+</div>
+
+
+
+
+
+
+

@@ -1,11 +1,33 @@
-    {{!-- form to create new recipe --}}
-<header>
-<form method="POST" action="/recipes/">
-    <p>Title:</p><input type="text" name="title"></br>
-    <p>Description:</p><input type="text" name="description"></br>
-    <p>Ingredients:</p><input type="text" name="ingredients"></br>
-    <p>Directions:</p><input type="text" name="directions"></br>
-    <input type="submit" value="Submit" class="button">
+<h1>Create a New Recipe</h1>
+
+<form method="POST" action="/users/{{userId}}/recipes">
+<div>
+    <label>Recipe Name:</label><br>
+    <input type="text" name="name" placeholder="Title of recipe" required='true'>
+</div>
+<div>
+    <label>Description:</label><br>
+    <input type="text" name="description" placeholder="Recipe description" required='true'>
+</div>
+<div>
+    <label>Image URL:</label><br>
+    <input type="text" name="imageUrl" value="http://" placeholder="Image URL">
+</div>
+<div>
+    <label>Ingredients:</label><br>
+    <input type="text" name="ingredients" placeholder="Recipe ingredients" required='true'>
+</div>
+<div>
+    <label>Directions:</label><br>
+    <input type="text" name="directions" placeholder="Recipe directions" required='true'>
+</div>
+<div>
+    <input type="submit" value="Create Recipe"  class="btn">
+</div>
 </form>
-</header>
- 
+<div style="padding-top:10px">
+<a href="/users/{{userId}}/recipes"><button  class="btn secondary">Go Back</button></a>
+</div>
+
+
+
