@@ -14,9 +14,7 @@ router.get('/', (req, res) => {
     });
 })
 
-//===================================
 // CREATE NEW USER
-//===================================
 router.post('/', (req, res) => {
     const userEmail = req.body.email;
     const userPassword = req.body.password;

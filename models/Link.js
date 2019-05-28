@@ -1,10 +1,5 @@
-
 const Schema = require("../db/schema");
 const mongoose = require('mongoose');
 
-const Recipe = Schema.Recipe;
-module.exports = Recipe;
-
-
-
-
+const Link = Schema.Link;
+module.exports = Link;

@@ -1,40 +1,56 @@
 
-body{
-    height: 1000px;
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+nav {
+  background-color: #3ea9f0!important
+}
+
+ .btn {
+      background-color: #3ea9f0!important;
+} 
+
+.secondary {
+      background-color: #fff!important;
+      color: #3ea9f0!important
+}
+.delete {
+  color: #b40000!important;
+  background-color: #fff!important;
+}
+.nav-wrapper {
+  padding-left:1em;
+  padding-right:1em;
+}
+
+.body-row {
+  width:90%;
+}
+input[type="text"] {
+  width:100%;
+  max-width:600px;
+}
+ input[type="submit"] {
+  background-color: #3ea9f0!important;
+    color: #fff;
     text-align: center;
-    background-color: #f2efed; /* For browsers that do not support gradients */
-    background-image: linear-gradient(#f2efed, #2cb4cc); 
-    background: cover;
-    font-family: 'Lato', sans-serif; 
-      
-  }
-
- ul {
-   list-style-type: none;
-   list-style: none;
- }
-
- #nav-items {
-   height: 80px;
-   background-color: transparent;
-   border: none;
-   color: #2cb4cc;
-   z-index: 100;
-   transition: background-color 1s ease 0s;
- }
- 
- a:link {
-    text-decoration: none;
-  }
-  
-  a:visited {
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  a:active {
-    text-decoration: underline;
-  }
+    letter-spacing: .5px;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    cursor: pointer;
+} 
+footer {
+  position:absolute;
+   bottom:0;
+   width:100%;
+   height:30px;   /* Height of the footer */
+}
+#PortfolioIndexDropdown {   
+  padding-top: 3em;
+  padding-right: 20em;
+}
