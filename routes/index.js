@@ -12,11 +12,11 @@ router.get('/',(req,res)=>{
     // views/ layout 
 
 router.get('/about',(req,res)=>{
-  res.render('../about', {title: 'About'});
+  res.render('about', {title: 'About'});
 });
 
 router.get('/contact',(req,res)=>{
-  res.render('../contact', {title: 'Contact'});
+  res.render('contact', {title: 'Contact'});
 });
 
 // GET users listing. 

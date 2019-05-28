@@ -3,14 +3,12 @@ const express = require('express');
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
-const passport = require('passport')
 const User = require('./models/User')
-const session = require('express-session')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
-// const path =require ('path')
+const path =require ('path')
 
-
+require('dotenv').config();
 
 const routes = require('./routes/index.js');
 const recipes = require('./routes/recipes.js')
@@ -31,10 +29,18 @@ db.once('open', () => {
 console.log('we\'re connected!')
 });
 
+const userNotLoggedIn = true;
+
+const logOut = function() {
+    userNotLoggedIn = true;
+    console.log("clicked log out, userLoggedIn is: " + userNotLoggedIn)
+}
+
 //Middleware
 app.use(express.json());
 
 //Set view engine
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // app.use(favicon(path.join(__dirname, "/public", "favicon.ico")));
@@ -42,23 +48,8 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/public', express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-
-//Config passport and session
-app.use(session({
-  secret: 'moonbeams mommy',
-  resave: false,
-  saveUninitialized: true,
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-passport.use(User.createStrategy());
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 //Router
@@ -66,6 +57,7 @@ app.use('/', routes);
 app.use('/recipes', recipes);
 app.use('/recipes/:id/reviews', reviews);
 // app.use('/users' users)
+
 
 // Listener
 const PORT = process.env.PORT || 3000
@@ -75,7 +67,7 @@ app.listen(PORT,()=>{
 
 
 
-
+module.exports = app;
 
 
 

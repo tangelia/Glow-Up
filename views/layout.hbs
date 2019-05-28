@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -13,9 +13,63 @@
             <li><a href="/login">Login</a></li>
             <li><a href="/recipes">Recipes</a></li>
             <li><a href="views/reviews/index.hbs">Reviews</a></li>
+           
         </ul>
     </nav>
     {{{body}}}
+
     <footer><small>Copyright 2019 Arbiter Digital</small></footer>
+
+
 </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel='stylesheet' href="/stylesheets/style.css" />
+  </head>
+<body>
+<header>
+  {{#if userNotLoggedIn}}
+     <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img src="/img/Logo-inverted.jpg" style="height:50px;padding-top:.5em;"></a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/users/">Browse</a></li>
+        </ul>
+      </div>
+    </nav>
+      {{else}}
+      <nav>
+      <div class="nav-wrapper">
+        <a href="/users/{{user.id}}/projects" class="brand-logo"><img src="/img/Logo-inverted.jpg" style="height:50px;padding-top:.5em;"></a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="/users/{{user.id}}">Account</a></li>
+          <li><a href="/login" onclick="logOut()">Logout</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/users/">Browse</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    {{/if}}
+    
+</header>
+
+    <div class="row body-row">
+    {{{body}}}
+    </div>
+    <script
+      src="http://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+  </body>
+ 
 </html>
