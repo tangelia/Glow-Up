@@ -1,6 +1,14 @@
-
 const express = require('express');
 const router = express.Router({mergeParams: true}); 
+// const {errorHandler} = require('../middleware')
+// const {recipeIndex, 
+//        recipeNew,
+//        recipeCreate,
+//        recipeShow,
+//        recipeEdit,
+//        recipeUpdate,
+//        recipeDelete } = require('../controller/recipes')
+
 const mongoose = require('mongoose');
 
 
@@ -9,6 +17,9 @@ const User = require("../models/User");
 const Link = require("../models/Link")
 
 //New Form
+// //GET post index /recipes
+// router.get('/', errorHandler(recipeIndex));
+
 router.get('/new', (req, res) => {
   const userId = req.params.userId;
   res.render(
@@ -26,10 +37,10 @@ router.post('/', (req, res) => {
     User.findById(userId).then((user) => {
       const newRecipe = new Recipe(newRecipeInfo);
       newRecipe.links = [];
-      for (var i = 0; i < req.body.linkUrl.length; i++) {
-        var newLinkUrl = req.body.linkUrl[i];
-        var newLinkDescription = req.body.linkDescription[i];
-        var newLink = new Link({
+      for (let i = 0; i < req.body.linkUrl.length; i++) {
+        let newLinkUrl = req.body.linkUrl[i];
+        let newLinkDescription = req.body.linkDescription[i];
+        let newLink = new Link({
           url: newLinkUrl,
           description: newLinkDescription
         })
@@ -53,14 +64,14 @@ router.get('/:recipeId/edit', (req, res) => {
   // res.send(`Your user ID is ${userIdToSearchDbFor}`)
   User.findById(userId)
     .then((user) => {
-      var foundRecipe = user.recipes.find((recipe) => {
+      let foundRecipe = user.recipes.find((recipe) => {
         return recipe.id === recipeId;
       })
-      var arrayOfLinks = [];
-      for (var i =0; i < foundRecipe.links.length; i++) {
+      let arrayOfLinks = [];
+      for (let i =0; i < foundRecipe.links.length; i++) {
           arrayOfLinks.push(foundRecipe.links.url);
       }
-      var length = arrayOfLinks.length
+      let length = arrayOfLinks.length
 
       res.render('recipes/edit', {
         user,
@@ -81,7 +92,7 @@ router.get('/:recipeId', (req, res) => {
 
     User.findById(userId)
       .then((user) => {
-        var foundRecipe = user.recipes.find((recipe) => {
+        let foundRecipe = user.recipes.find((recipe) => {
           return recipe.id === recipeId;
         })
 
@@ -97,7 +108,7 @@ router.get('/:recipeId', (req, res) => {
 router.put('/:recipeId', (req, res) => {
   const recipeId = req.params.recipeId;
   const userId = req.params.userId;
-  var arrayOfRecipes = [];
+  let arrayOfRecipes = [];
  User.findById(userId).then((user) => {
     const foundRecipe = user.recipes.find((recipe) => {
       return recipe.id === recipeId;
@@ -112,11 +123,11 @@ router.put('/:recipeId', (req, res) => {
     foundRecipe.links = [];
     // console.log("After:");
     // console.log(foundRecipe.links);
-    for (var i = 0; i < req.body.linkUrl.length; i++) {
+    for (let i = 0; i < req.body.linkUrl.length; i++) {
       // console.log("Add another link")
-      var newLinkUrl = req.body.linkUrl[i];
-      var newLinkDescription = req.body.linkDescription[i];
-      var newLink = new Link({
+      let newLinkUrl = req.body.linkUrl[i];
+      let newLinkDescription = req.body.linkDescription[i];
+      let newLink = new Link({
         url: newLinkUrl,
         description: newLinkDescription
       })
@@ -152,10 +163,10 @@ router.put('/:recipeId', (req, res) => {
 
 //Index
 router.get('/', (req, res) => {
-  var userId = req.params.userId;
+  let userId = req.params.userId;
   User.findById(userId)
       .then((user) => {
-        var arrayOfRecipes = user.recipes;
+        let arrayOfRecipes = user.recipes;
         // console.log(arrayOfRecipes);
         res.render('recipes/index', {
           userId,
@@ -169,7 +180,7 @@ router.get('/', (req, res) => {
 router.get('/:recipeId/delete', (req, res) => {
   const userId = req.params.userId;
   const recipeId = req.params.recipeId;
-  var arrayOfRecipes = [];
+  let arrayOfRecipes = [];
   User.findById(userId)
     .then((user) => {
       arrayOfRecipes = user.recipes;
@@ -206,19 +217,8 @@ module.exports = router;
 
 
 
-// let express = require('express')
-// let router = express.Router()
-// const {errorHandler} = require('../middleware')
-// const {recipeIndex, 
-//        recipeNew,
-//        recipeCreate,
-//        recipeShow,
-//        recipeEdit,
-//        recipeUpdate,
-//        recipeDelete } = require('../controller/recipes')
 
-// //GET post index /recipes
-// router.get('/', errorHandler(recipeIndex));
+
 
 // //GET new  /recipes/new
 // router.get('/new', recipeNew);

@@ -32,15 +32,14 @@ const DashboardSchema = new Schema({
 const UserSchema = new Schema({
     first_name: String,
     last_name: String,
-    email: String, //{type: String , required: true, unique: true}, // REACH add regex
+    email: String, 
     created_at: Date,
     updated_at: Date,
-    user_name: String, // REACH regex
+    user_name: String, 
     password: String,
     dashboard: DashboardSchema,
     recipes: [RecipeSchema],
     loggedIn: false,
-    job_name: String
 });
 
 // Example query found online

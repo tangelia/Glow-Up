@@ -19,7 +19,7 @@ const reviews = require('./routes/reviews.js')
 const app = express();
 
 //Connect database
-// mongoose.connect('mongodb://localhost/Glow-Up', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/Glow-Up', {useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
@@ -56,7 +56,7 @@ app.use(methodOverride('_method'));
 app.use('/', routes);
 app.use('/recipes', recipes);
 // app.use('/recipes/:id/reviews', reviews);
-// app.use('/users' users)
+app.use('/users', User)
 
 
 // Listener

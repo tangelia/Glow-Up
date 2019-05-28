@@ -1,7 +1,22 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+
+if (process.env.MONGODB_URI) {
+       mongoose.connect(process.env.MONGODB_URI);
+      }
+      else {
+        mongoose.connect('mongodb://localhost/Glow-Up');
+      }
+      mongoose.connection.on('error', (err) => {
+        console.error('MongoDB connection error: ' + err);
+        process.exit(-1);
+        }
+      );
+      mongoose.connection.once('open',()=> {
+        console.log("Mongoose has connected to MongoDB!");
+      });
+    
 
 const User = require('../models/User');
 const Recipe = require('../models/Recipe');
@@ -12,19 +27,19 @@ mongoose.promise = global.Promise;
 
 const db = mongoose.connection;
 
-Recipe.remove({}, function(err) {
+Recipe.deleteMany({}, function(err) {
     console.log(err);
 });
 
-User.remove({}, function(err) {
+User.deleteOne({}, function(err) {
     console.log(err);
 });
 
-Dashboard.remove({}, function(err) {
+Dashboard.deleteOne({}, function(err) {
     console.log(err);
 });
 
-Link.remove({}, (err) => {
+Link.deleteMany({}, (err) => {
     console.log(err);
 })
 

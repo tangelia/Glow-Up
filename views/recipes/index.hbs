@@ -16,6 +16,7 @@
             <label>Featured Image:</label><br>
             <img src="{{this.imageUrl}}" style="height:100px;" alt="Recipe Image">
         </div><br>
+        {{#each this.links}}
         <div>
             <label>Ingredients:</label><br>
             {{this.ingredients}}
@@ -25,7 +26,7 @@
             {{this.directions}}
         </div><br>
         {{/each}}
-        {{!--<div>this.imageUrl--}}     
+           
         
 
     </ul>
@@ -33,7 +34,7 @@
     <a href="/users/{{../user.id}}/recipes/{{this.id}}/edit"><button class="btn">Edit</button></a>
     <a href="/users/{{../user.id}}/recipes/{{this._id}}"><button class="btn secondary">View</button></a>
     <a href="/users/{{../user.id}}/recipes/{{this._id}}/delete"><button class="btn delete">Delete</button></a>
-    {{/each}}
+{{/each}}
 </div>
 
 
