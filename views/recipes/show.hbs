@@ -1,26 +1,50 @@
-{{!-- shows one recipe --}}
-<div class="content">
-<header>
-    {{!--  information --}}
-    <ul>
-<li><h1> {{recipe.title}}</h1></li>
-<li><h3> description:{{recipe.description}} hours</h3></li>
-<li><h3> ingredients: </br>{{recipe.ingredients}}</h3></li>
-<li><h3> directions: </br>{{recipe.directions}}</h3></li>
-</ul>
-</header>
-<main>
-<form action="/recipes/{{recipe.id}}?_method=put" method="POST">
-    <p>Title:</p><input type="text" name="title"></br>
-    <p>Description: </p><input type="number" name="description"></br>
-    <p>Ingredients:</p><input type="text" name="ingredients" class="biggerInputBox"></br>
-    <p>Directions:</p><input type="text" name="directions" class="biggerInputBox"></br>
-{{!--  edit --}}
-    <input type="submit" value="Edit" class="button">
-</form>
-<form action="/recipes/{{recipe.id}}?_method=delete" method="POST">
-{{!-- delete  --}}
-<input type="submit" value="Delete" class="button">
-</form>
-</main>
+<h1>My Recipe:</h1>
+
+<div>{{recipe.id}}</div>
+<div>
+     <label>Recipe Name:</label><br>
+     {{recipe.title}}
 </div>
+<div>
+     <label>Description:</label><br>
+    {{recipe.description}}
+</div>
+<div>
+     <label>Image URL:</label><br>
+    {{recipe.imageUrl}}
+</div>
+
+<div>
+     <label>Ingredients:</label><br>
+    {{recipe.ingredients}}
+</div>
+ <div>
+     <label>Directions:</label><br>
+    {{recipe.directions}}
+</div>
+<div>
+    <label>Created At:</label><br>
+    {{recipe.created_at}}
+</div>
+<div>
+    <label>Updated At:</label><br>
+    {{recipe.updated_at}}
+</div>
+<a href="/users/{{userId}}/recipes/{{recipe.id}}/edit"><button class="btn">Edit My Recipe</button></a>
+<a href="/users/{{userId}}/recipes/{{recipe._id}}/delete"><button class="btn delete">Delete {{recipe.name}}</button></a>
+<a href="/users/{{userId}}/recipes"><button class="btn secondary">Go back</button></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

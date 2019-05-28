@@ -1,71 +1,109 @@
-let express = require('express')
-let router = express.Router()
-const {postRegister, postLogin, getLogout} = require('../controller')
-const {errorHandler} = require('../middleware')
+const express = require('express');
+const router = express.Router(); 
+const mongoose = require('mongoose');
 
-//Home route
+const NewUserSchema = require('../models/user.js')
+const Recipe = require("../models/Recipes")
+const User = require("../models/User");
 
-router.get('/',(req,res)=>{
-    res.render('layout');
+router.get('/', (req, res) => {
+    userNotLoggedIn = true;
+    console.log("im loading indexUser")
+    res.render('index', {
+        userNotLoggedIn
     });
+})
 
-    // views/ layout 
+//===================================
+// CREATE NEW USER
+//===================================
+router.post('/', (req, res) => {
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
+    User.findOne({"email": userEmail}).then((user) => {
+        if (user === null) {
+            const newUser = new NewUserSchema(req.body);
+            newUser.save()
+                    .then((user) => {
+                        res.render(`users/show`, { 
+                            user,
+                     } );
+                    })
+                    .catch((error) => {
+                        console.log('Error saving new user to database!');
+                        console.log(error);
+                    });
+        } else {
+            res.render('login', {
+                errorMessage: `User already exists. Please log in`
+            });
+        }
 
-router.get('/about',(req,res)=>{
-  res.render('about', {title: 'About'});
+    })
 });
 
-router.get('/contact',(req,res)=>{
-  res.render('contact', {title: 'Contact'});
+router.get('/about', (req, res) => {
+    userNotLoggedIn = true;
+    res.render('about', {
+        userNotLoggedIn
+    });
+})
+
+router.get('/login', (req, res) => {
+    userNotLoggedIn = true;
+    res.render('login', {
+        userNotLoggedIn
+    });
+})
+
+router.put('/login-submit', (req, res) => {
+  const userEmail = req.body.email;
+  const userPassword = req.body.password;
+  console.log(`Email: ${userEmail}`);
+  console.log(`Password: ${userPassword}`)
+
+ User.findOne({"email": userEmail}).then((user) => {
+    console.log(`This user's object: ${user}`);
+    console.log(`This user's password: ${user.password}`);
+    arrayOfRecipes = user.recipes;
+        if (user.password === req.body.password) {
+            res.render('recipes/index', {
+                userId: user._id,
+                user, 
+                arrayOfRecipes,
+            })
+        } else {
+            userNotLoggedIn = true;
+            res.render('login', {
+                userNotLoggedIn,
+                errorMessage: `Incorrect Password`
+            })
+        } 
+    })
+    .catch((error) => {
+                userNotLoggedIn = true;
+                res.render('login', {
+                userNotLoggedIn,
+                errorMessage: `Email Address does not exist`
+  });
+    
+  })
 });
 
-// GET users listing. 
-router.get('/register', (req, res, next) => {
-    res.send('GET /register');
-  });
-  
-  //POST create register user
-router.post('/register', errorHandler(postRegister));
 
-// GET users login
-router.get('/login', (req, res, next) => {
-    res.send('GET /login');
-  });
-  
-  //POST create /user login
-router.post('/login', postLogin);
+router.get('/:userName', (req, res) => {
+    const userName = req.params.userName;
+    User.findOne({"user_name": userName})
+    .then((user) => {
+        userNotLoggedIn = true;
+        res.render('dashboard/show', {
+            user,
+            userNotLoggedIn,
+            dashboardHeader: `${user.first_name} ${user.last_name}'s Dashboard`
+    })
+        }).catch((err) => {
+        res.send(`User does not exist`);
+    })
+})
 
-// GET /logout
-router.get('/logout', getLogout);
-
-// GET users profile 
-router.get('/profile', (req, res, next) => {
-    res.send('GET /profile');
-  });
-  
-  //PUT update users profile
-router.put('/profile/:user_id', (req, res, next) => {
-    res.send('PUT /profile/:user_id');
-  });
-
-// GET forgot user password
-router.get('/forgot', (req, res, next) => {
-    res.send('GET /forgot');
-  });
-
-  router.put('/forgot', (req, res, next) => {
-    res.send('PUT /forgot');
-  });
-
-//   GET reset user password
-router.get('/reset/:token', (req, res, next) => {
-    res.send('GET /reset/:token');
-  });
-
-  router.put('/reset/:token', (req, res, next) => {
-    res.send('PUT /reset/:token');
-  });
-
-
-
-module.exports = router
+module.exports = router;
