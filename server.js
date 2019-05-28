@@ -55,7 +55,7 @@ app.use(methodOverride('_method'));
 //Router
 app.use('/', routes);
 app.use('/recipes', recipes);
-app.use('/recipes/:id/reviews', reviews);
+// app.use('/recipes/:id/reviews', reviews);
 // app.use('/users' users)
 
 

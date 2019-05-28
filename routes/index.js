@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 const NewUserSchema = require('../models/user.js')
-const Recipe = require("../models/Recipes")
+const Recipe = require("../models/Recipe")
 const User = require("../models/User");
 
 router.get('/', (req, res) => {

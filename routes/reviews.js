@@ -1,37 +1,37 @@
-let express = require('express')
-let router = express.Router()
-const {errorHandler} = require('../middleware')
-const {reviewIndex, 
-       reviewNew,
-       reviewCreate,
-       reviewShow,
-       reviewEdit,
-       reviewUpdate,
-       reviewDelete } = require('../controller/reviews')
+// let express = require('express')
+// let router = express.Router()
+// const {errorHandler} = require('../middleware')
+// const {reviewIndex, 
+//        reviewNew,
+//        reviewCreate,
+//        reviewShow,
+//        reviewEdit,
+//        reviewUpdate,
+//        reviewDelete } = require('../controller/reviews')
 
-//GET post index /reviews
-router.get('/', errorHandler(reviewIndex));
+// //GET post index /reviews
+// router.get('/', errorHandler(reviewIndex));
 
-//GET new  /reviews/new
-router.get('/new', errorHandler( reviewNew) );
+// //GET new  /reviews/new
+// router.get('/new', errorHandler( reviewNew) );
 
-//POST create /reviews
-router.post('/', errorHandler(reviewCreate));
+// //POST create /reviews
+// router.post('/', errorHandler(reviewCreate));
 
 
-//GET show /reviews/:id
-router.get('/:id',errorHandler(reviewShow));
+// //GET show /reviews/:id
+// router.get('/:id',errorHandler(reviewShow));
 
-// GET edit /reviews/:id/edit
-router.get('/:id/edit',errorHandler(reviewEdit));
+// // GET edit /reviews/:id/edit
+// router.get('/:id/edit',errorHandler(reviewEdit));
 
-//PUT update  /reviews/:id
-router.put('/:id',errorHandler(reviewUpdate));
+// //PUT update  /reviews/:id
+// router.put('/:id',errorHandler(reviewUpdate));
 
-//DELETE delete /reviews/:id
-router.delete('/:id', errorHandler(reviewDelete));
+// //DELETE delete /reviews/:id
+// router.delete('/:id', errorHandler(reviewDelete));
     
 
 
 
-module.exports = router
+// module.exports = router

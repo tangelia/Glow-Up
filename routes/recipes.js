@@ -1,20 +1,14 @@
-//======================
-// REQUIREMENTS
-//======================
+
 const express = require('express');
 const router = express.Router({mergeParams: true}); 
 const mongoose = require('mongoose');
 
 
-var Recipe = require("../models/recipe")
-var User = require("../models/user");
-var Link = require("../models/link")
+const Recipe = require("../models/Recipe")
+const User = require("../models/User");
+const Link = require("../models/Link")
 
-
-//======================
-// NEW recipe FORM
-//======================
-
+//New Form
 router.get('/new', (req, res) => {
   const userId = req.params.userId;
   res.render(
@@ -24,10 +18,7 @@ router.get('/new', (req, res) => {
   );
 })
 
-//============================
-// NEW recipe CREATE ROUTE
-//============================
-
+//New Recipe
 router.post('/', (req, res) => {
     const userId = req.params.userId;
     const newRecipeInfo = req.body;
@@ -53,10 +44,8 @@ router.post('/', (req, res) => {
     })
 
 
-//======================
-// EDIT
-//======================
 
+//Edit
 router.get('/:recipeId/edit', (req, res) => {
   const userId = req.params.userId;
   const recipeId = req.params.recipeId;
@@ -85,10 +74,7 @@ router.get('/:recipeId/edit', (req, res) => {
 });
 
 
-//======================
-// SHOW Recipe
-//======================
-
+//Show
 router.get('/:recipeId', (req, res) => {
   const userId = req.params.userId;
   const recipeId = req.params.recipeId;
@@ -106,10 +92,8 @@ router.get('/:recipeId', (req, res) => {
   });
 });
 
-//======================
-// UPDATE
-//======================
 
+//Update
 router.put('/:recipeId', (req, res) => {
   const recipeId = req.params.recipeId;
   const userId = req.params.userId;
@@ -165,11 +149,8 @@ router.put('/:recipeId', (req, res) => {
 });
 
 
-//======================
-// INDEX
-//======================
 
-
+//Index
 router.get('/', (req, res) => {
   var userId = req.params.userId;
   User.findById(userId)
@@ -184,9 +165,7 @@ router.get('/', (req, res) => {
         })
       });
 
-//======================
-// DELETE
-//======================
+//Delete
 router.get('/:recipeId/delete', (req, res) => {
   const userId = req.params.userId;
   const recipeId = req.params.recipeId;
@@ -216,9 +195,6 @@ router.get('/:recipeId/delete', (req, res) => {
 
 
 
-//======================
-// EXPORTS
-//======================
 module.exports = router;
 
 
